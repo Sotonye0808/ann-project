@@ -4,3 +4,7 @@ datasets
 numpy
 pandas
 scikit-learn
+protobuf
+tiktoken
+sentencepiece
+tqdm

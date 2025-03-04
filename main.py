@@ -11,12 +11,13 @@ import pandas as pd
 import os
 from sklearn.model_selection import train_test_split
 
-# Load AfriBERTa model and tokenizer
-model_name = "castorini/afriberta-large"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
+# Load AfriBERTa model and tokenizer from local files
+model_path = os.path.join(os.getcwd(), "afriberta_large")  # Path to your local model directory
+tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=True)
 model = AutoModelForSequenceClassification.from_pretrained(
-    model_name,
-    num_labels=3  # Adjust based on sentiment classes (e.g., positive, negative, neutral)
+    model_path,
+    num_labels=3,  # Adjust based on sentiment classes (e.g., positive, negative, neutral)
+    local_files_only=True
 )
 tokenizer.model_max_length = 512
 
@@ -96,10 +97,10 @@ def main():
         train_loss = train(model, train_loader, optimizer, device, scheduler)
         print(f"Training loss: {train_loss:.4f}")
 
-    print(f"Validation results after {num_epochs} epochs:")
-    # Validate after each epoch
-    accuracy, f1, precision, recall = validate(model, val_loader, device)
-    print(f"Accuracy: {accuracy:.4f}, F1: {f1:.4f}, Precision: {precision:.4f}, Recall: {recall:.4f}")
-    
+        print(f"Validation results after {num_epochs} epochs:")
+        # Validate after each epoch
+        accuracy, f1, precision, recall = validate(model, val_loader, device)
+        print(f"Accuracy: {accuracy:.4f}, F1: {f1:.4f}, Precision: {precision:.4f}, Recall: {recall:.4f}")
+
 if __name__ == "__main__":
     main()

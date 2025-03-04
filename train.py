@@ -1,10 +1,11 @@
 import torch
+from tqdm import tqdm
 
 def train(model, train_loader, optimizer, device, scheduler=None):
     model.train()
     total_loss = 0
     
-    for batch in train_loader:
+    for batch in tqdm(train_loader, desc="Training"):
         optimizer.zero_grad()
         input_ids = batch['input_ids'].to(device)
         attention_mask = batch['attention_mask'].to(device)
