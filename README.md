@@ -87,6 +87,8 @@ yoruba-sentiment-analysis/
 ├── afriberta_large/       # Model directory
 └── datasets/              # Data directory
     └── yor_test.tsv       # Yorùbá tweets dataset
+    └── yor_train.tsv       # Yorùbá tweets dataset
+    └── yor_dev.tsv       # Yorùbá tweets dataset
 ```
 
 ## Requirements
@@ -120,4 +122,8 @@ Model Architecture: Uses AfriBERTa-large (126M parameters) as the base model
 
 - Uses differential learning rates (higher for new layers, lower for fine-tuned layers)
 - Implements gradient clipping to prevent exploding gradients
-- Employs a learning rate scheduler with warmup
+- Employs a learning rate scheduler with 
+
+### Citations
+
+- @misc{muhammad2022naijasenti, title={NaijaSenti: A Nigerian Twitter Sentiment Corpus for Multilingual Sentiment Analysis}, author={Shamsuddeen Hassan Muhammad and David Ifeoluwa Adelani and Sebastian Ruder and Ibrahim Said Ahmad and Idris Abdulmumin and Bello Shehu Bello and Monojit Choudhury and Chris Chinenye Emezue and Saheed Salahudeen Abdullahi and Anuoluwapo Aremu and Alipio Jeorge and Pavel Brazdil}, year={2022}, eprint={2201.08277}, archivePrefix={arXiv}, primaryClass={cs.CL} }
