@@ -1,59 +1,66 @@
-# Yorùbá Sentiment Analysis using AfriBERTa
+# Yorùbá Sentiment Analysis using Transfer Learning with AfriBERTa
 
-This project applies transfer learning to fine-tune the AfriBERTa multilingual language model for sentiment analysis of Yorùbá text.
+This project applies transfer learning to fine-tune the AfriBERTa multilingual language model for sentiment analysis of Yorùbá text, providing a robust solution for emotion detection in African language content.
 
 ## Project Overview
 
-This implementation uses transfer learning to adapt AfriBERTa-large (a pre-trained model with knowledge of 11 African languages, including Yorùbá) for sentiment classification.
+This implementation uses transfer learning to adapt AfriBERTa-large (a pre-trained model with knowledge of 11 African languages, including Yorùbá) for sentiment classification. By freezing most of the base model layers and only fine-tuning specific layers, we preserve the language knowledge while adapting the model to the sentiment analysis task.
 
 ### Features
 - Sentiment analysis for Yorùbá text (positive, negative, neutral)
-- Transfer learning implementation that preserves language knowledge
-- Interactive testing interface for real-time sentiment predictions
+- Transfer learning approach that preserves pre-trained language knowledge
+- Interactive testing interface with real-time sentiment predictions
+- Model selection from previously trained versions
+- Comprehensive logging and performance metrics
 
 ## Model Architecture
 
 - **Base Model**: AfriBERTa-large (126M parameters)
 - **Architecture**: 10 layers, 6 attention heads, 768 hidden units, 3072 feed-forward size
 - **Transfer Learning Approach**:
-  - Frozen base layers to preserve language knowledge
-  - Fine-tuned last 2 transformer layers
-  - New classification head for sentiment prediction
+  - Frozen base layers to preserve Yorùbá language knowledge
+  - Fine-tuned last 2 transformer layers for task-specific adaptation
+  - New classification head for sentiment prediction (3 classes)
 
 ## Performance
 
 After 5 epochs of training:
-- **Accuracy**: 0.6692
-- **F1 Score**: 0.6653
-- **Precision**: 0.6640
-- **Recall**: 0.6692
+- **Accuracy**: 66.92%
+- **F1 Score**: 66.53%
+- **Precision**: 66.40%
+- **Recall**: 66.92%
 
 ## Training Details
 
+### Dataset
+- Combined dataset from three sources (train, dev, test)
+- Split into training (70%), validation (20%), and test (10%) sets
+- Preserves class distribution through stratified sampling
+
 ### Hyperparameters
-- Learning rates:
+- **Learning rates**:
   - Classification head: 5e-4
   - Fine-tuned layers: 1e-5
-- Weight decay: 0.01
-- Batch size: 16
-- Number of epochs: 5
-- Max sequence length: 512
-- Warmup steps: 10% of total training steps
-- Gradient clipping: 1.0
+- **Weight decay**: 0.01
+- **Batch size**: 16 (with gradient accumulation)
+- **Number of epochs**: 5
+- **Max sequence length**: 128 (reduced from 512 to speed up training)
+- **Warmup steps**: 10% of total training steps
+- **Gradient clipping**: 1.0
 
 ### Training Results
-- Epoch 1/5: Training loss: 0.9499
-- Epoch 2/5: Training loss: 0.8194
-- Epoch 3/5: Training loss: 0.7532
-- Epoch 4/5: Training loss: 0.7245
-- Epoch 5/5: Training loss: 0.7006
+- **Epoch 1/5**: Training loss: 0.9499
+- **Epoch 2/5**: Training loss: 0.8194
+- **Epoch 3/5**: Training loss: 0.7532
+- **Epoch 4/5**: Training loss: 0.7245
+- **Epoch 5/5**: Training loss: 0.7006
 
 ## Installation and Usage
 
 1. **Clone the repository**:
    ```
    git clone https://github.com/Sotonye0808/ann-project.git
-   cd yoruba-sentiment-analysis
+   cd ann-project
    ```
 
 2. **Install dependencies**:
@@ -65,30 +72,45 @@ After 5 epochs of training:
    ```
    python user.py
    ```
+   This allows you to:
+   - Select from available trained models
+   - Test individual Yorùbá sentences
+   - Run batch evaluations on test data
+   - View detailed performance metrics
 
 4. **To retrain the model**:
    ```
    python main.py
    ```
+   Training will:
+   - Combine and preprocess the datasets
+   - Create train/validation/test splits
+   - Apply transfer learning techniques
+   - Log results and save the trained model
 
 ## Data
 
-The model was trained on a dataset of Yorùbá tweets with sentiment labels (positive, negative, neutral).
+The model was trained on a dataset of Yorùbá tweets with sentiment labels:
+- **Positive**: Expressing approval, happiness, or favorable sentiment
+- **Negative**: Expressing disapproval, sadness, or unfavorable sentiment  
+- **Neutral**: Expressing neither positive nor negative sentiment
 
 ## Project Structure
 ```
 yoruba-sentiment-analysis/
 ├── main.py                # Main training script
-├── train.py               # Training function
-├── validate.py            # Validation function
-├── dataset.py             # Dataset handling
-├── user.py          # Interactive testing interface
+├── train.py               # Training function with progress tracking
+├── validate.py            # Validation function with metrics calculation
+├── dataset.py             # Dataset handling and preprocessing
+├── user.py                # Interactive testing interface with model selection
 ├── requirements.txt       # Project dependencies
-├── afriberta_large/       # Model directory
+├── afriberta_large/       # Base pre-trained model directory
+├── models/                # Directory for saved fine-tuned models 
+├── logs/                  # Training logs and model performance records
 └── datasets/              # Data directory
-    └── yor_test.tsv       # Yorùbá tweets dataset
-    └── yor_train.tsv       # Yorùbá tweets dataset
-    └── yor_dev.tsv       # Yorùbá tweets dataset
+    └── yor_test.tsv       # Yorùbá tweets test dataset
+    └── yor_train.tsv      # Yorùbá tweets training dataset
+    └── yor_dev.tsv        # Yorùbá tweets development/validation dataset
 ```
 
 ## Requirements
@@ -99,31 +121,40 @@ yoruba-sentiment-analysis/
 - Pandas
 - NumPy
 - Scikit-learn
+- tqdm
+- sentencepiece
+- protobuf
 
-## Additional
-### Code Explanation
-This project applies transfer learning to fine-tune AfriBERTa (a pre-trained multilingual language model) for Yorùbá sentiment analysis. The implementation:
+## Technical Details
 
-Model Architecture: Uses AfriBERTa-large (126M parameters) as the base model
+### Transfer Learning Process
 
-### Transfer Learning Approach:
+1. **Base Model Preparation**:
+   - Load pre-trained AfriBERTa-large model
+   - Freeze most layers to preserve language knowledge
+   - Add classification head for sentiment analysis
 
-- Freezes the base model layers to preserve language knowledge
-- Unfreezes and fine-tunes only the last 2 transformer layers
-- Adds a new classification head for sentiment prediction
+2. **Model Training**:
+   - Use differential learning rates for different parts of the model
+   - Apply gradient accumulation to simulate larger batch sizes
+   - Implement learning rate scheduling with warmup
+   - Apply gradient clipping to prevent exploding gradients
 
-### Dataset Processing:
+3. **Evaluation**:
+   - Calculate accuracy, F1 score, precision, and recall
+   - Generate confusion matrices
+   - Compute class-specific metrics
+   - Test on sample sentences after training
 
-- Loads Yorùbá tweets with sentiment labels from TSV file
-- Splits into train (70%), validation (20%), and test (10%) sets
-- Maps sentiment labels to numeric values (positive: 0, negative: 1, neutral: 2)
+## Future Improvements
 
-### Training Strategy:
+- Experiment with different sequence lengths and batch sizes
+- Try different fine-tuning approaches (e.g., freezing different layers)
+- Explore data augmentation techniques for minority classes
+- Implement additional regularization methods
 
-- Uses differential learning rates (higher for new layers, lower for fine-tuned layers)
-- Implements gradient clipping to prevent exploding gradients
-- Employs a learning rate scheduler with 
+## Citations
 
-### Citations
+- Muhammad, S. H., Adelani, D. I., Ruder, S., Ahmad, I. S., Abdulmumin, I., Bello, B. S., Choudhury, M., Emezue, C. C., Abdullahi, S. S., Aremu, A., Jeorge, A., & Brazdil, P. (2022). NaijaSenti: A Nigerian Twitter Sentiment Corpus for Multilingual Sentiment Analysis. arXiv:2201.08277 [cs.CL].
 
-- @misc{muhammad2022naijasenti, title={NaijaSenti: A Nigerian Twitter Sentiment Corpus for Multilingual Sentiment Analysis}, author={Shamsuddeen Hassan Muhammad and David Ifeoluwa Adelani and Sebastian Ruder and Ibrahim Said Ahmad and Idris Abdulmumin and Bello Shehu Bello and Monojit Choudhury and Chris Chinenye Emezue and Saheed Salahudeen Abdullahi and Anuoluwapo Aremu and Alipio Jeorge and Pavel Brazdil}, year={2022}, eprint={2201.08277}, archivePrefix={arXiv}, primaryClass={cs.CL} }
+- Ogueji, K., Zhu, Y., & Lin, J. (2021). Small Data? No Problem! Exploring the Viability of Pretrained Multilingual Language Models for Low-resourced Languages. In Proceedings of the 1st Workshop on Multilingual Representation Learning (pp. 116–126).
