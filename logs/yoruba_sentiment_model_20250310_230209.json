@@ -1,0 +1,289 @@
+{
+  "model_name": "yoruba_sentiment_model",
+  "timestamp": "20250310_230209",
+  "metrics": {
+    "accuracy": 0.703058204537981,
+    "f1": 0.6979650683928061,
+    "precision": 0.6985587740537883,
+    "recall": 0.703058204537981,
+    "sample_test_accuracy": 0.6333333333333333
+  },
+  "training_info": {
+    "epochs": [
+      {
+        "epoch": 1,
+        "train_loss": 0.9639486055314721,
+        "accuracy": 0.6195330483393621,
+        "f1": 0.5849202025227188,
+        "precision": 0.6388806761855652,
+        "recall": 0.6195330483393621,
+        "training_time": 676.0622165203094,
+        "validation_time": 129.54206156730652
+      },
+      {
+        "epoch": 2,
+        "train_loss": 0.8395168635195116,
+        "accuracy": 0.6616244656363038,
+        "f1": 0.6442196668175941,
+        "precision": 0.6557513263058199,
+        "recall": 0.6616244656363038,
+        "training_time": 835.3551943302155,
+        "validation_time": 125.32155203819275
+      },
+      {
+        "epoch": 3,
+        "train_loss": 0.7969748980036495,
+        "accuracy": 0.6658993752055244,
+        "f1": 0.6326289998356527,
+        "precision": 0.6754411179165402,
+        "recall": 0.6658993752055244,
+        "training_time": 838.3175308704376,
+        "validation_time": 126.53131556510925
+      },
+      {
+        "epoch": 4,
+        "train_loss": 0.7707540826630016,
+        "accuracy": 0.6816836566918777,
+        "f1": 0.6663425312923487,
+        "precision": 0.6826209686414021,
+        "recall": 0.6816836566918777,
+        "training_time": 874.9050421714783,
+        "validation_time": 126.80827975273132
+      },
+      {
+        "epoch": 5,
+        "train_loss": 0.7489266497423461,
+        "accuracy": 0.703058204537981,
+        "f1": 0.6979650683928061,
+        "precision": 0.6985587740537883,
+        "recall": 0.703058204537981,
+        "training_time": 848.009593963623,
+        "validation_time": 125.12402129173279
+      }
+    ],
+    "total_training_time": 4705.990608930588,
+    "hyperparameters": {
+      "batch_size": 8,
+      "gradient_accumulation_steps": 4,
+      "learning_rates": {
+        "classifier": 0.0005,
+        "fine_tuned_layers": 1e-05
+      },
+      "weight_decay": 0.01,
+      "sequence_length": 128,
+      "warmup_ratio": 0.05
+    }
+  },
+  "sample_test_results": [
+    {
+      "text": "Monday Ojo aje. Aje ooo! #yoruba",
+      "true_label": "positive",
+      "predicted_label": "positive",
+      "confidence": 0.98195880651474,
+      "correct": true
+    },
+    {
+      "text": "RT @user: Mo rerin arintakiti. Awada yi po \"\"\"\"\"\"\"\"@user: @user. Àní kòrókòró ojú mi, owó rèé! Ẹ máa bọ̀ tẹbí-tará. http://t.…",
+      "true_label": "positive",
+      "predicted_label": "positive",
+      "confidence": 0.8834316730499268,
+      "correct": true
+    },
+    {
+      "text": "Gbogbo ọmọ Yorùbá, ìgbà ọ̀tun wọlé dé pẹ̀lú BBC Yorùbá https://t.co/7l56BV4el4 Omidan @user je ikan ninu awon atokun BBC Yoruba https://t.co/g5lxlJJLnO",
+      "true_label": "positive",
+      "predicted_label": "neutral",
+      "confidence": 0.8099769949913025,
+      "correct": false
+    },
+    {
+      "text": "RT @user: A kú ojúmó o, èyin olùfé ede Yorùbá n'ílé l'óko l'ónà odò. E wa ba wa gbe ede wa l'áruge lori ìtakùn-àgbáiyé. Òní l'ojo ...",
+      "true_label": "positive",
+      "predicted_label": "positive",
+      "confidence": 0.7161170244216919,
+      "correct": true
+    },
+    {
+      "text": "@user: @user oro loso omoyoba, ejire abi ejirebi\"\"\"\" Ojúmọ́ 're ni :) #Yoruba",
+      "true_label": "positive",
+      "predicted_label": "positive",
+      "confidence": 0.65155428647995,
+      "correct": true
+    },
+    {
+      "text": "Nínú àtẹ̀jáde tí mo kà ní @user, a ti borí ìjà ọ̀hún ... @user @user @user @user @user #TweetYoruba",
+      "true_label": "positive",
+      "predicted_label": "neutral",
+      "confidence": 0.8184207677841187,
+      "correct": false
+    },
+    {
+      "text": "#orin&gt;~ Ẹ máa pe ko ṣẹ. Àṣẹ!2ce L'óní ọjọ́ aje. Àṣẹ! Aje a wá wa wale. Owó a wá wa wale...",
+      "true_label": "positive",
+      "predicted_label": "positive",
+      "confidence": 0.9715129137039185,
+      "correct": true
+    },
+    {
+      "text": "mo fẹ́ràn àdìrẹ rẹ kọ́ ̀bá meaning i like your patterned skirt pls",
+      "true_label": "positive",
+      "predicted_label": "positive",
+      "confidence": 0.6126309037208557,
+      "correct": true
+    },
+    {
+      "text": "@user Àti àlọ àti àbọ̀ wa di ọwọ́ Ọlọ́run Ọba. Oun táa jẹ làá nwá lọ, a ò ní pàdé oun tí ó jẹ wá!",
+      "true_label": "positive",
+      "predicted_label": "positive",
+      "confidence": 0.734870195388794,
+      "correct": true
+    },
+    {
+      "text": "RT @user: Omo Yooba atata.RT @user: Ọmọ asòótọ́, ọmọ asánjú abẹ ní ìkó. Ẹ kú (cont) http://t.co/jAJe0EicZo",
+      "true_label": "positive",
+      "predicted_label": "positive",
+      "confidence": 0.6158862709999084,
+      "correct": true
+    },
+    {
+      "text": "àfikún owóorí tí ó bẹ̀rẹ̀ ní láyé luggard tó fa sábàbí ogun àdùbí náà ló fa",
+      "true_label": "negative",
+      "predicted_label": "negative",
+      "confidence": 0.5812140107154846,
+      "correct": true
+    },
+    {
+      "text": "Kò yá mi lára láti kọ lọ́sẹ̀ọ̀sẹ̀ mọ́ sórí http://t.co/cYVinSLF6c @user #bloggerkiniyorubase #EdeAbinibi #Yoruba",
+      "true_label": "negative",
+      "predicted_label": "neutral",
+      "confidence": 0.786665678024292,
+      "correct": false
+    },
+    {
+      "text": "A ní Kọ́bọ̀, àmọ́ kò sẹ́ni t'ó ń ná an. Ìdí kan pàtó tí ọrọ̀ Ajé orílẹ̀ èdè wa ó fi gún régé. #Nigeria https://t.co/hqpmrMlXeq",
+      "true_label": "negative",
+      "predicted_label": "negative",
+      "confidence": 0.6408523321151733,
+      "correct": true
+    },
+    {
+      "text": "ogoji eniyan ipinle taraba ni o fi ara pa ni bi ija elesi mesi",
+      "true_label": "negative",
+      "predicted_label": "negative",
+      "confidence": 0.8284527659416199,
+      "correct": true
+    },
+    {
+      "text": "Bọ́tà (butter) kì í ṣe oúnjẹ ọ̀bọ. Ta l'ó kọ́kọ́ p'òwe ìgbàlódée nì gan-an! Mo mọ́ ọn ń rò, kílonítọ̀hún rí tí ó fi pa á. #Owe #Yoruba",
+      "true_label": "negative",
+      "predicted_label": "negative",
+      "confidence": 0.5168374180793762,
+      "correct": true
+    },
+    {
+      "text": "12. #PariOweYii Òfófó ní í pẹrú; èpè ní í polè;... #ibeere #Yoruba",
+      "true_label": "negative",
+      "predicted_label": "neutral",
+      "confidence": 0.81828373670578,
+      "correct": false
+    },
+    {
+      "text": "@user hmmm. Ó máa ṣòro díẹ̀ láti rí irú iṣẹ́ yìí ní Naija lóòótọ́.",
+      "true_label": "negative",
+      "predicted_label": "positive",
+      "confidence": 0.7059202194213867,
+      "correct": false
+    },
+    {
+      "text": "Àti pé, àwọn àbájáde ìwà ìkà tí Europe ṣe ilẹ̀ adú t'ó ń da ọpọlọ adú láàmú dọ̀la ńkọ́, ó yẹ kí a yẹ̀ ẹ́ wò. #OIANUK #BlackHistoryMonthUK",
+      "true_label": "negative",
+      "predicted_label": "neutral",
+      "confidence": 0.47178325057029724,
+      "correct": false
+    },
+    {
+      "text": "🎶 Ta lẹ̀ ń kó wá bá! Àdìgún ọmọ́jọmọ lọ tírin bá kan irin ìkan a tẹ̀ fún-ùn kàn",
+      "true_label": "negative",
+      "predicted_label": "neutral",
+      "confidence": 0.5491824150085449,
+      "correct": false
+    },
+    {
+      "text": "àdán olókun ohun tó kọjá ẹja lásán ni ẹja yìí sí àwọn èèyàn yorùbá kan bí wọ́n bá ti pa ẹja yìí wọ́n ma gé ìrù rẹ̀ tí wọ́n ma sa sí òòrùn fún ọ̀sẹ̀ mélòó kan bí ọmọ bá ṣẹ̀ wọ́n ma mú ìrù àdán náà tí wọn yóò sì na ọmọ náà bíi kíkú bíi yíyè",
+      "true_label": "negative",
+      "predicted_label": "neutral",
+      "confidence": 0.6928150057792664,
+      "correct": false
+    },
+    {
+      "text": "@user Ó dẹ̀jì. Tí a bá ka iyé àwọn akọ̀wé Gẹ̀ẹ́sì ní ilẹ̀ Yorùbá, á máà lọ bí ẹgbẹ̀rún mélòókan.",
+      "true_label": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.7349011301994324,
+      "correct": true
+    },
+    {
+      "text": "what the thing gan gan kini nkan na",
+      "true_label": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.7669379115104675,
+      "correct": true
+    },
+    {
+      "text": "RT @user: Oluwa loni disco...",
+      "true_label": "neutral",
+      "predicted_label": "positive",
+      "confidence": 0.960049569606781,
+      "correct": false
+    },
+    {
+      "text": "Mo kọ àkọsílẹ̀ ránpẹ́ kan nípa ètò #Tiwantiwa. http://t.co/M88yO7y9 #yoruba",
+      "true_label": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.851666271686554,
+      "correct": true
+    },
+    {
+      "text": "bẹ́ẹ̀ dópin láìtó ọjọ́, tí Ẹlẹ́dàá rẹ̀ sì ní ohun púpọ̀ láti ṣe ní aiyé. Tàbí, kí ó jẹ́ wípé, wọ́n kò sin òkú ẹni bẹ́ẹ̀ dáada, èyí tí ó fa àìsinmi ẹni bẹ́ẹ̀. Wọ́n ma ń ṣiṣẹ́, tí wọ́n sì ma ń fẹ́ ìyàwó, tàbí kí wọ́n lọ́kọ, tí wọ́n ma ń bímọ pẹ̀lú.",
+      "true_label": "neutral",
+      "predicted_label": "negative",
+      "confidence": 0.5035170912742615,
+      "correct": false
+    },
+    {
+      "text": "bí èjì ogbè wí fun pé bíntín ni ọ̀rọ̀ rẹ̀ ẹbọ ni kí ẹyẹlé ó ṣe kí ó lè bàá rí ọmọ bí kíni ohun ẹbọ ẹyẹlé bèrè èjì ogbè ni kí ẹyẹlé wá àgbagbà ọ̀gẹ̀dẹ̀ alásopọ̀ méjì eku méjì ẹja méjì àti ẹyin adìyẹ méjì kí ó fi wọ́n rúbọ yóò sì bímọ",
+      "true_label": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.816118061542511,
+      "correct": true
+    },
+    {
+      "text": "ẹṣin ọ̀rọ̀ ní àdàbà kekelúke kò sí ọjà tí kò ná tán àpèjúwe nǹkan ni ọjà tí kò ná tán àmọ́ kí ni àdàbà kekelúke inú òwe yìí a ẹyẹ b owó ẹyọ d aláròró",
+      "true_label": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.6990645527839661,
+      "correct": true
+    },
+    {
+      "text": "@user 🍽 Abọ́ mi rè é. Ṣé mi ò late báyìí 🤔",
+      "true_label": "neutral",
+      "predicted_label": "positive",
+      "confidence": 0.5070487260818481,
+      "correct": false
+    },
+    {
+      "text": "16. Mo kí ọ̀ta mo kí òpè ni à ń kí àwọn ọ̀tayò. Báwo la ṣe ń kí aláìsàn? #ibeere #Yoruba",
+      "true_label": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.7363619208335876,
+      "correct": true
+    },
+    {
+      "text": "ọ̀sẹ̀ kan ni ìyàwó kọ̀ọ̀kan ní lọ́dọ̀ baba ẹnu ọ̀nà iyàrá baba ni ẹni tó bá kàn yóò fi aṣọ rẹ̀ kọ́ sí",
+      "true_label": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.93049556016922,
+      "correct": true
+    }
+  ]
+}

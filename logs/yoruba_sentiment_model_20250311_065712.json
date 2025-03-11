@@ -1,0 +1,339 @@
+{
+  "model_name": "yoruba_sentiment_model",
+  "timestamp": "20250311_065712",
+  "metrics": {
+    "accuracy": 0.700427490956922,
+    "f1": 0.6972567701754938,
+    "precision": 0.696359667425393,
+    "recall": 0.700427490956922,
+    "sample_test_accuracy": 0.7
+  },
+  "training_info": {
+    "epochs": [
+      {
+        "epoch": 1,
+        "train_loss": 0.9543054961005727,
+        "accuracy": 0.6491285761262743,
+        "f1": 0.6298665703293461,
+        "precision": 0.6444945788180957,
+        "recall": 0.6491285761262743,
+        "training_time": 613.7237944602966,
+        "validation_time": 115.59080338478088
+      },
+      {
+        "epoch": 2,
+        "train_loss": 0.847453908977912,
+        "accuracy": 0.6596514304505097,
+        "f1": 0.6537546625607932,
+        "precision": 0.6574738992739323,
+        "recall": 0.6596514304505097,
+        "training_time": 600.4500687122345,
+        "validation_time": 115.39098072052002
+      },
+      {
+        "epoch": 3,
+        "train_loss": 0.8105267987240478,
+        "accuracy": 0.6754357119368629,
+        "f1": 0.6654570305943819,
+        "precision": 0.671782956161477,
+        "recall": 0.6754357119368629,
+        "training_time": 599.5462031364441,
+        "validation_time": 114.49631762504578
+      },
+      {
+        "epoch": 4,
+        "train_loss": 0.7899566416563945,
+        "accuracy": 0.6767510687273923,
+        "f1": 0.6677809678715966,
+        "precision": 0.6738277524733578,
+        "recall": 0.6767510687273923,
+        "training_time": 631.9229259490967,
+        "validation_time": 117.641446352005
+      },
+      {
+        "epoch": 5,
+        "train_loss": 0.764010864757339,
+        "accuracy": 0.6853008878658337,
+        "f1": 0.6847247611250977,
+        "precision": 0.6854116155537778,
+        "recall": 0.6853008878658337,
+        "training_time": 614.4999015331268,
+        "validation_time": 129.99169731140137
+      },
+      {
+        "epoch": 6,
+        "train_loss": 0.7517135319077717,
+        "accuracy": 0.6862874054587307,
+        "f1": 0.6855201646043337,
+        "precision": 0.6941100835339238,
+        "recall": 0.6862874054587307,
+        "training_time": 614.1619396209717,
+        "validation_time": 118.11513233184814
+      },
+      {
+        "epoch": 7,
+        "train_loss": 0.7365521792648783,
+        "accuracy": 0.6954949029924367,
+        "f1": 0.6903943170977741,
+        "precision": 0.6928961091607116,
+        "recall": 0.6954949029924367,
+        "training_time": 758.0606622695923,
+        "validation_time": 19940.25597667694
+      },
+      {
+        "epoch": 8,
+        "train_loss": 0.7208518914405673,
+        "accuracy": 0.6856297270634659,
+        "f1": 0.6686599256008171,
+        "precision": 0.682657140728814,
+        "recall": 0.6856297270634659,
+        "training_time": 594.3388969898224,
+        "validation_time": 115.93826150894165
+      },
+      {
+        "epoch": 9,
+        "train_loss": 0.7159341228872628,
+        "accuracy": 0.6997698125616574,
+        "f1": 0.694957942562205,
+        "precision": 0.6947382663712302,
+        "recall": 0.6997698125616574,
+        "training_time": 623.2215209007263,
+        "validation_time": 128.63474321365356
+      },
+      {
+        "epoch": 10,
+        "train_loss": 0.7024644432291164,
+        "accuracy": 0.700427490956922,
+        "f1": 0.6972567701754938,
+        "precision": 0.696359667425393,
+        "recall": 0.700427490956922,
+        "training_time": 662.4793915748596,
+        "validation_time": 118.59740543365479
+      }
+    ],
+    "total_training_time": 27327.079533100128,
+    "hyperparameters": {
+      "batch_size": 16,
+      "gradient_accumulation_steps": 4,
+      "learning_rates": {
+        "classifier": 0.0005,
+        "fine_tuned_layers": 1e-05
+      },
+      "weight_decay": 0.01,
+      "sequence_length": 128,
+      "warmup_ratio": 0.05
+    }
+  },
+  "sample_test_results": [
+    {
+      "text": "oruko oluwa ileso agbara ni olododo saawo inu rę o si ye",
+      "true_label": "positive",
+      "predicted_label": "neutral",
+      "confidence": 0.7089976668357849,
+      "correct": false
+    },
+    {
+      "text": "Ó ní láti fi ìmoore hàn, kí Èjì Ogbè ó kọ́lé fún òun ní ìtaa rẹ̀, kí òun ó máa gbé. Ó ní, ‘mo bímọ méjì, mo d’ẹyẹ ilé.\"\"\"\" #BiEyekoSeDiEyele",
+      "true_label": "positive",
+      "predicted_label": "positive",
+      "confidence": 0.6909763216972351,
+      "correct": true
+    },
+    {
+      "text": "RT @user: \"\"\"\"\"\"\"\"@user: Ònìí á dára o\"\"\"\"\"\"\"\" amin n t'Edumare!!!",
+      "true_label": "positive",
+      "predicted_label": "positive",
+      "confidence": 0.8106827735900879,
+      "correct": true
+    },
+    {
+      "text": "RT @user: Orí tí yóò la 'ni kì í dẹ́rù pa' ni. #EsinOro🐎 #Yoruba",
+      "true_label": "positive",
+      "predicted_label": "negative",
+      "confidence": 0.6190720200538635,
+      "correct": false
+    },
+    {
+      "text": "eyin ololufe ati eyin musulumi o dodo a ki yin fun odun ileya o emi a se opolopo odun laiye o",
+      "true_label": "positive",
+      "predicted_label": "positive",
+      "confidence": 0.9465751647949219,
+      "correct": true
+    },
+    {
+      "text": "ekaro ara twitteroruko mi ni ayomide omo naijiria rere ni mi awon obi wa lati ipinle omoluabi eja gba idura fun ilu wa",
+      "true_label": "positive",
+      "predicted_label": "positive",
+      "confidence": 0.6440725922584534,
+      "correct": true
+    },
+    {
+      "text": "ohun lo pase fun ojo to fin yo edumare pa ase aseyori fun mi loni o lílà oòrùn lójúmọ́ àṣẹ olódùmarè ni",
+      "true_label": "positive",
+      "predicted_label": "positive",
+      "confidence": 0.9120261669158936,
+      "correct": true
+    },
+    {
+      "text": "Oluwa, mo fi aye mi si e lowo .... #TweetInYoruba",
+      "true_label": "positive",
+      "predicted_label": "positive",
+      "confidence": 0.9853405356407166,
+      "correct": true
+    },
+    {
+      "text": "RT @user: Iku oro tin nba ku, Iya ese tin nba je, Gbogbo re loti kolo. JESU OLUWA E MA SE O, tori mi lese jiya.@user @user ...",
+      "true_label": "positive",
+      "predicted_label": "positive",
+      "confidence": 0.8496140241622925,
+      "correct": true
+    },
+    {
+      "text": "RT @user: @user Awa omo yoruba mo wipe ise loogun ise. A ti wa lona ise wa. Ki Olorun je ka sowo bode pade loni. E ku ojumo gbo…",
+      "true_label": "positive",
+      "predicted_label": "positive",
+      "confidence": 0.8907760381698608,
+      "correct": true
+    },
+    {
+      "text": "látàrí gbólóhùn asọ̀ tó wà láàárín aláàfin awólẹ̀ àti àfọ̀njá ẹkùn aláàfin bẹ̀rẹ̀ sí í bú ramúramù ó fi èpè bọnú aláàfin fi èpè lé e fún àfọ̀njá",
+      "true_label": "negative",
+      "predicted_label": "negative",
+      "confidence": 0.5062133073806763,
+      "correct": true
+    },
+    {
+      "text": "RT @user: @user @user Ko ri be rara o! Okan ninu Iro nla awon oloselu Oke Oya ti won fin pin owo ajoni fun ra won,…",
+      "true_label": "negative",
+      "predicted_label": "negative",
+      "confidence": 0.9092638492584229,
+      "correct": true
+    },
+    {
+      "text": "Iro ni wan pa mo Oko mi o! Ore lasan ni Dame Jonathan ati Dotun! Iyawo Dotun Olusi kigbe nipa awuyewuye to gba igboro http://t.co/WpwCFqoLUN",
+      "true_label": "negative",
+      "predicted_label": "negative",
+      "confidence": 0.9275497794151306,
+      "correct": true
+    },
+    {
+      "text": "Ẹni tó ńbẹ̀rù àti ṣubú, àti dìde á nira fún un. / Whoever is scared of falling will find rising pretty tough. [Nothing ventured, nothing gained; be bullish; be open to taking calculated risks.]~@user #Yoruba #proverb #SARSMUSTEND #EndPoliceBrutality",
+      "true_label": "negative",
+      "predicted_label": "positive",
+      "confidence": 0.6692488193511963,
+      "correct": false
+    },
+    {
+      "text": "Àwọn Iléèjọsìn ní Greece àti Àríwá Macedonia kọ̀ láti yọwọ́ ìlànà-ìsìn wọn padà k'ó ba má fàyè gba àjàkálẹ̀ àrùn #COVIDー19 t'ó ń ràn ká. https://t.co/Xtpk2HukUi \"\"\"\"\"\"\"\"Ọ̀rọ̀-òdì sí Olúwa ni láti ní ìgbàgbọ́ wí pé ènìyàn lè tara Jíjẹ ara-àti-mímu-ẹ̀jẹ̀ Olúwa kó ààrùn.",
+      "true_label": "negative",
+      "predicted_label": "positive",
+      "confidence": 0.5245053172111511,
+      "correct": false
+    },
+    {
+      "text": "Òlè ò ráyé wá o, ibi ọmọlọ́mọ ni alápámáṣiṣẹ́ já gbà.",
+      "true_label": "negative",
+      "predicted_label": "negative",
+      "confidence": 0.4203941822052002,
+      "correct": true
+    },
+    {
+      "text": "À rí ìgbọdọ̀ wí, baálé ilé sú 'ápẹ. #EsinOro🐎 #Yoruba https://t.co/anobpLUBqi",
+      "true_label": "negative",
+      "predicted_label": "positive",
+      "confidence": 0.5385445356369019,
+      "correct": false
+    },
+    {
+      "text": "RT @user: Erin kee kee!! \"\"\"\"\"\"\"\"@user: \"\"\"\"\"\"\"\"@user: Bayern ti she Wolimo fun Man city .....\"\"\"\"\"\"\"\"Ṣépé ọmọ ilé kéwú #Bayern ni #Mancity? :)\"\"\"\"\"\"\"\"",
+      "true_label": "negative",
+      "predicted_label": "positive",
+      "confidence": 0.45012664794921875,
+      "correct": false
+    },
+    {
+      "text": "Iron un pa iro fun iro.............. Enu e le wa yen.....................",
+      "true_label": "negative",
+      "predicted_label": "positive",
+      "confidence": 0.7570788264274597,
+      "correct": false
+    },
+    {
+      "text": "omo araiye o fe ni foro afori eni",
+      "true_label": "negative",
+      "predicted_label": "positive",
+      "confidence": 0.6920972466468811,
+      "correct": false
+    },
+    {
+      "text": "Tí èèyàn bá kú sí inú omi (òkun, ọ̀sà, odò abbl), etí omi ni wọ́n gbọ́dọ̀ sin òkú ẹni náà sìí, Lẹ́hìn tí wọ́n bá ti ṣe àwọn oríṣiríṣi etutu. Ìgbàgbọ́ àwọn Yorùbá ni wípé, ẹni náà ti di òrìṣà omi.",
+      "true_label": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.7481391429901123,
+      "correct": true
+    },
+    {
+      "text": "ORAL POETRY AND THE PLACES WHERE THEY ARE PRACTICED / EWÌ ALOHÙN ÀTI ÀWỌN IBI TÍ A TI Ń LÒ WỌ̀Ọ́N (1): The table below gives an insight on them and, the people that are allowed to take part in them. Àtẹ ìsàlẹ̀ yìí fi àwọn tí wọ́n ń kópa nínú àwọn ewì yìí hàn. https://t.co/KH4qqofUqh",
+      "true_label": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.7392189502716064,
+      "correct": true
+    },
+    {
+      "text": "AWORAN: Oluyole Ibadan,ilu ogunmola. Aworan lati owo @user http://t.co/WnJUK62K",
+      "true_label": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.5939832329750061,
+      "correct": true
+    },
+    {
+      "text": "what is the name of the ancient yorùbá town that they say has no door nor keys clue it is in their eulogy kíni orúkọ ìlú yorùbá àtijọ́ tí wọ́n ní kò ní ilẹ̀kùn kò sì ní kọ́kọ́rọ́ ìtọ́nisọ́nà ó wà nínú oríkì wọn",
+      "true_label": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.8297420144081116,
+      "correct": true
+    },
+    {
+      "text": "@user Ọbàkan = ọmọ bàbá kan (náà) Iyèkan = ọmọ ìyá kan (náà)",
+      "true_label": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.9799622297286987,
+      "correct": true
+    },
+    {
+      "text": "a ò bí wa lọ́jọ́ kan náà oṣù yàtọ̀ ọdún tí a bí mi kọ́ la bí ọ kódà ọmọ ìbejì tí a bí ńjọ́ kannáà ó yan orí kan náà",
+      "true_label": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.613667368888855,
+      "correct": true
+    },
+    {
+      "text": "bi won fun were loko odo ara re naa ni yoo roko si",
+      "true_label": "neutral",
+      "predicted_label": "negative",
+      "confidence": 0.6968889832496643,
+      "correct": false
+    },
+    {
+      "text": "Ọmọ adú Marc Hannah l'ó ṣe ìmọ̀ ìjìnlẹ̀ ayàwòrán tí a mọ̀ sí 3D. #BHM",
+      "true_label": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.7845510840415955,
+      "correct": true
+    },
+    {
+      "text": "6. Àṣà ìdábẹ́ ti ṣe díẹ̀ ńlẹ̀ẹ Yorùbá, ta ni ẹni àkọ́kọ́ tí a dá abẹ́ fún? #ibeere #Yoruba",
+      "true_label": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.9704403877258301,
+      "correct": true
+    },
+    {
+      "text": "@user Àṣà ìlú àti eégún náà ni. Bí ó ti ṣe wà láti ọjọ́ sí nìyẹn",
+      "true_label": "neutral",
+      "predicted_label": "neutral",
+      "confidence": 0.8672511577606201,
+      "correct": true
+    }
+  ]
+}

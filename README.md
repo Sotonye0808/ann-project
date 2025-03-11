@@ -7,6 +7,7 @@ This project applies transfer learning to fine-tune the AfriBERTa multilingual l
 This implementation uses transfer learning to adapt AfriBERTa-large (a pre-trained model with knowledge of 11 African languages, including Yorùbá) for sentiment classification. By freezing most of the base model layers and only fine-tuning specific layers, we preserve the language knowledge while adapting the model to the sentiment analysis task.
 
 ### Features
+
 - Sentiment analysis for Yorùbá text (positive, negative, neutral)
 - Transfer learning approach that preserves pre-trained language knowledge
 - Interactive testing interface with real-time sentiment predictions
@@ -25,54 +26,68 @@ This implementation uses transfer learning to adapt AfriBERTa-large (a pre-train
 ## Performance
 
 After 5 epochs of training:
-- **Accuracy**: 66.92%
-- **F1 Score**: 66.53%
-- **Precision**: 66.40%
-- **Recall**: 66.92%
+
+- **Accuracy**: 70.04%
+- **F1 Score**: 69.73%
+- **Precision**: 69.64%
+- **Recall**: 70.04%
 
 ## Training Details
 
 ### Dataset
+
 - Combined dataset from three sources (train, dev, test)
 - Split into training (70%), validation (20%), and test (10%) sets
 - Preserves class distribution through stratified sampling
 
 ### Hyperparameters
+
 - **Learning rates**:
   - Classification head: 5e-4
   - Fine-tuned layers: 1e-5
 - **Weight decay**: 0.01
-- **Batch size**: 16 (with gradient accumulation)
-- **Number of epochs**: 5
+- **Batch size**: 16 (with gradient accumulation of 4)
+- **Number of epochs**: 10
 - **Max sequence length**: 128 (reduced from 512 to speed up training)
 - **Warmup steps**: 10% of total training steps
 - **Gradient clipping**: 1.0
 
 ### Training Results
-- **Epoch 1/5**: Training loss: 0.9499
-- **Epoch 2/5**: Training loss: 0.8194
-- **Epoch 3/5**: Training loss: 0.7532
-- **Epoch 4/5**: Training loss: 0.7245
-- **Epoch 5/5**: Training loss: 0.7006
+
+- **Epoch 1/10**: Training loss: 0.9543
+- **Epoch 2/10**: Training loss: 0.8475
+- **Epoch 3/10**: Training loss: 0.8105
+- **Epoch 4/10**: Training loss: 0.7899
+- **Epoch 5/10**: Training loss: 0.7640
+- **Epoch 6/10**: Training loss: 0.7517
+- **Epoch 7/10**: Training loss: 0.7366
+- **Epoch 8/10**: Training loss: 0.7209
+- **Epoch 9/10**: Training loss: 0.7159
+- **Epoch 10/10**: Training loss: 0.7025
 
 ## Installation and Usage
 
 1. **Clone the repository**:
+
    ```
    git clone https://github.com/Sotonye0808/ann-project.git
    cd ann-project
    ```
 
 2. **Install dependencies**:
+
    ```
    pip install -r requirements.txt
    ```
 
 3. **Run the interactive test interface**:
+
    ```
    python user.py
    ```
+
    This allows you to:
+
    - Select from available trained models
    - Test individual Yorùbá sentences
    - Run batch evaluations on test data
@@ -91,11 +106,13 @@ After 5 epochs of training:
 ## Data
 
 The model was trained on a dataset of Yorùbá tweets with sentiment labels:
+
 - **Positive**: Expressing approval, happiness, or favorable sentiment
-- **Negative**: Expressing disapproval, sadness, or unfavorable sentiment  
+- **Negative**: Expressing disapproval, sadness, or unfavorable sentiment
 - **Neutral**: Expressing neither positive nor negative sentiment
 
 ## Project Structure
+
 ```
 yoruba-sentiment-analysis/
 ├── main.py                # Main training script
@@ -105,7 +122,7 @@ yoruba-sentiment-analysis/
 ├── user.py                # Interactive testing interface with model selection
 ├── requirements.txt       # Project dependencies
 ├── afriberta_large/       # Base pre-trained model directory
-├── models/                # Directory for saved fine-tuned models 
+├── models/                # Directory for saved fine-tuned models
 ├── logs/                  # Training logs and model performance records
 └── datasets/              # Data directory
     └── yor_test.tsv       # Yorùbá tweets test dataset
@@ -130,11 +147,13 @@ yoruba-sentiment-analysis/
 ### Transfer Learning Process
 
 1. **Base Model Preparation**:
+
    - Load pre-trained AfriBERTa-large model
    - Freeze most layers to preserve language knowledge
    - Add classification head for sentiment analysis
 
 2. **Model Training**:
+
    - Use differential learning rates for different parts of the model
    - Apply gradient accumulation to simulate larger batch sizes
    - Implement learning rate scheduling with warmup

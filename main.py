@@ -200,8 +200,8 @@ def main():
     val_texts = val_df['tweet'].tolist()
     val_labels = val_df['numeric_label'].tolist()
     
-    train_batch_size = 8  # Batch size
-    gradient_accumulation_steps = 4  # Accumulate gradients
+    train_batch_size = 64  # Batch size
+    gradient_accumulation_steps = 8  # Accumulate gradients
 
     # Create datasets and dataloaders
     print("Creating datasets and dataloaders...")
@@ -230,7 +230,7 @@ def main():
         ],
         weight_decay=0.01
     )
-    num_epochs = 5
+    num_epochs = 30
     
     # Learning rate scheduler
     total_steps = (len(train_loader) // gradient_accumulation_steps) * num_epochs
