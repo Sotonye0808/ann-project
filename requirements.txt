@@ -8,3 +8,6 @@ protobuf
 tiktoken
 sentencepiece
 tqdm
+matplotlib 
+seaborn 
+jupyter
